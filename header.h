@@ -12,6 +12,7 @@ struct Room {
     vector<string> items; // #16 DynamicArrays_Vectors - Vector. slide 13
     map<string, bool> locked;
     map<string, string> features;
+    string gfx;
 };
 
 class Player { // #17 Classes - slide 5

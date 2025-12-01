@@ -72,16 +72,122 @@ public: // #15 Multiple Inheritance - slide 5
 
 
     void room_stuff() { // 
-        room[0] = { "Ye find yeself in yon dungeon. Obvious exits are NORTH, WEST, SOUTH, and EAST",{{"north",6},{"west",8},{"south",3},{"east",1}},{},{},{} }; // #10 Arrays - slide 3
-        room[1] = { "Ye find yeself in right. Obvious exits are NORTH, WEST, and SOUTH",{{"north",7},{"west",0},{"south",4}},{},{},{} };
-        room[2] = { "Ye find yeself in downleft. Obvious exits are NORTH, and EAST",{{"north",8},{"east",3}},{},{} };
-        room[3] = { "Ye find yeself in down. There appears to be a pedestal in the center of the room. Obvious exits are NORTH, WEST, and EAST",{{"north",0},{"west",2},{"east",4}},{"key"},{},{{"pedestal", "You see a pedestal with a KEY upon it."}} }; // key room
-        room[4] = { "Ye find yeself in downright. Obvious exits are NORTH,and WEST",{{"north",1},{"west",3}},{},{},{} };
-        room[5] = { "Ye find yeself in upleft. Obvious exits are SOUTH, and EAST",{{"south",8},{"east",6}},{},{},{} };
-        room[6] = { "Ye find yeself in up. To the north is a DOOR. Other exits are WEST, SOUTH, and EAST",{{"north",9},{"west",5},{"south",0},{"east",7}},{},{{"north", true}},{{"door", "You see a heavy door with a big lock on it."}} }; // locked door? havent added rooms up there yet
-        room[7] = { "Ye find yeself in upright. Obvious exits are WEST, and SOUTH",{{"west",6},{"south",1}},{},{},{} };
-        room[8] = { "Ye find yeself in left. There appears to be something carved on the wall. Obvious exits are NORTH, SOUTH, and EAST",{{"north",5},{"south",2},{"east",0}},{},{},{{"wall", "You see a carving on the wall. It says v > "}} };
-        room[9] = { "Ye find yeself in upup. Obvious exits are SOUTH",{{"south",9}},{},{},{}};
+        room[0] = { "Ye find yeself in yon dungeon. Obvious exits are NORTH, WEST, SOUTH, and EAST",{{"north",6},{"west",8},{"south",3},{"east",1}},{},{},{},{} }; // #10 Arrays - slide 3
+        room[1] = { "Ye find yeself in right. Obvious exits are NORTH, WEST, and SOUTH",{{"north",7},{"west",0},{"south",4}},{},{},{},{} };
+        room[2] = { "Ye find yeself in downleft. Obvious exits are NORTH, and EAST",{{"north",8},{"east",3}},{},{},{} };
+        room[3] = { R"(
+
+
+                                  %.........%@     
+                                %.......:.....#%   
+                               %...+%==+*===%...%  
+                              %...%=%       %%...% 
+                              %...+          %%..%%
+                              %...%           %..%%
+                               @...          %-..%%
+                             %..%%..%%     %=...%% 
+                             %%...%....+++:...%+%  
+                           %...:%==%+%%...=%%=%%   
+                         %....==%=+% .%%%%%%%      
+                      +%....+-%@                   
+                    @%....+:%%                     
+                  @@....=:%=                       
+                %%....=:%                          
+              %#....=:%+%                          
+            %-....=:%+....%                        
+          %.....+:%+..%%..+@                       
+       @@@%==.=:%-.:%..%.%........:@@%             
+   %@......%+=%.....%.%%................@          
+  :.............%..=%....................@         
+  @+..............@.......:::--........ +@         
+   +++++++   .-=................   #%##*+@         
+    @+++++=--=-=======-=-+++++#**######@@          
+    @####@@@+-====-==-==++==-*##%@@@####@          
+    @++###*#############################@          
+   @+++####===----========+++++#++###+###          
+ @..@#+++++=+=----++==----++++++++#####@+.@        
+ @+ ....@@@+-=---------=++++++++##@@:....##@       
+ @++#*++  ..:...:.:::.:............ # #####@       
+ @++##+++++++------.    .:-==-=############@       
+   #@@##+++++====-===--+++++=++++++####@@          
+         %@@@@@========++++==-@@@@@:               
+
+
+Ye find yeself in down. There appears to be a pedestal in the center of the room. Obvious exits are NORTH, WEST, and EAST)",{{"north",0},{"west",2},{"east",4}},{"key"},{},{{"pedestal", "You see a pedestal with a KEY upon it."}},{} }; // key room
+        room[4] = { "Ye find yeself in downright. Obvious exits are NORTH,and WEST",{{"north",1},{"west",3}},{},{},{},{} };
+        room[5] = { "Ye find yeself in upleft. Obvious exits are SOUTH, and EAST",{{"south",8},{"east",6}},{},{},{},{} };
+        room[6] = { R"(
+
+
+                                                   
+                    =@@@@@@@@@                     
+               @@@#.===-===-==- @@@%               
+            @ .==.@===@===%====%.=+- @@            
+         =@.=======@==@=======+@===-*=- @          
+         *===@@====@**@%@@@***@+====*===:@         
+      @ ..@==@===*@@++++==+++++@@*=====@@..@       
+     @.===@=@#*@@*+++===::===+++*+@*#@=@====@      
+    @.====@-=@@+++===+==::===+===+++@*=@=====@     
+   -.===@===@+++====+=+=-:==+======++@*+=====-@    
+   +#======@++==========-:==========++@*======@    
+  @  . %@@@@+=====+=====::========+==++@@@@... @   
+  @.======@+*=====+=====::========++=++@*======.   
+  @:======@+=+======+===-:========+==++@*====== +  
+  @-==@==%@+============-:==++====+===*%*==@===.*  
+  @======*@+========+===-:=+==========+%*====== .  
+  @*******@+==+====+==+=-:====+=======+%#**#***@   
+  @ ...-=*@+============-:=========+==+#@==:...@   
+  @-=====*@+======-=====-:==========-=+%*======..  
+  @=====@*@#=====-=====--=--=-=---=---*@*====== *  
+  @==+===#@*==*.-+=====@=.@======@:-@=*@@@=-=== +  
+  @======*@#==@@@=======@@%======#@@==*@**=@===:   
+  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+  @ -===@*@+============-:===+========+%*=====:-   
+  @===@==*@+==+====+====-:=+====@=@@=#+%*====== =  
+  @======#@++=========+=-:====+=@=@@=@+%*====== *  
+  @==-===*@+============-:======@####@+#*======.-  
+  @======*@+===+========-:============+%**@-===+   
+   @@@@@@@@+==++========-:+=+=========+%@@@@@@@@   
+  @---==%=@*==+=========-:===+========*#*=+====.   
+  @-=-===+@*+=+=========-:===========+*%*=@==== +  
+  @====-=*@*+========+==-:============*%*======.+  
+  @======*@*+===========-:============*%**@====-.  
+  @***@***@*============-:=====-======*%#**##**@   
+                                                   
+                                                   
+
+
+Ye find yeself in up. To the north is a DOOR. Other exits are WEST, SOUTH, and EAST)",{{"north",9},{"west",5},{"south",0},{"east",7}},{},{{"north", true}},{{"door", "You see a heavy door with a big lock on it."}},{""}}; // locked door? havent added rooms up there yet
+        room[7] = { "Ye find yeself in upright. Obvious exits are WEST, and SOUTH",{{"west",6},{"south",1}},{},{},{},{} };
+        room[8] = { "Ye find yeself in left. There appears to be something carved on the wall. Obvious exits are NORTH, SOUTH, and EAST",{{"north",5},{"south",2},{"east",0}},{},{},{{"wall", R"(
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+* :::::::::::::: @ :::::::::::::::::::::: -----=-+@
+*:::::::@::::::::=:::::::::-++++#:.:::::@-------+*@
+*::::::::::::::::::::::::::::::::::::::%::.:--:::+@
+@::::::::::::::::::::::::::::::::::::::::::#::*::-@
+@ ::@::::@%%%@:::::::@%%%%@::@%@#:::::::::::::=-:*@
++:::@:::::%**%@::::::@%*%@:::@%*%%@%::::::::::--:+@
++:::::::::@+*#@@::::@@+*%.::::@#+**%%@@::::::::::+@
+*::::::::::@***%#::@%@*+@::::::::@#***%%@%:::::.:+@
+*::::::::::.@***@:*%*@*@::::::::::::@*+**@.::::::+@
+*:.:-:::::::@*+*#@@%**@ :::::::::@@%%+**#@::::@%:+@
+*:::::::::::-@+**%%***@.::::::@@%%++**@ :::::::::+@
+*:::::::::::::@*@****@:::::::@%+%*@@ @::::::::@::+@
+#::::::::::::::@+***@::::::::@%@@ ::::::::::::+:=+@
+#--:::::::=::::...@ :::::::::. ::::::::: :::*:::**@
+%--::+:::+:::::::::::::::::::::::::::::::::=:.:+++@
+@++--::::::: ::::::::::-+=++*.:@::::::::::-*:::*++@
+@*+*-::::@@@.:::::::::.:-:::::::::--:::::::::+*#++@
+@***+***@++**+***+++-:-=+++*+*+**++***+@@@@+*@++++@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+You see a carving on the wall. It says v > )"}},{} };
+        room[9] = { "Ye find yeself in upup. Obvious exits are SOUTH",{{"south",9}},{},{},{},{} };
     }
 
     void look() { // #7 Functions - slide 3
@@ -120,6 +226,49 @@ public: // #15 Multiple Inheritance - slide 5
 
             if (location == 9) {
                 system("cls");
+                cout << R"(
+
+
+
+                                                   
+                  -#@@@@@@@@@@@@+:                 
+           .........................====+          
+  @.......@@#@@%=-=================+@@@%@@.......# 
+  @..@@@@..*@......................-===@%..@@@@..+ 
+  :..@   @..@.@.........*..@......@-===@..@   @..  
+   #.#      @..........:####.+.....===-@      +.@  
+   @.=@     %........=@*###@#=@....===.:     @-.@  
+    ..@      %........#=-####@.:...===@      @.+   
+    @..@     @........#######@.:..===-@     @..@   
+     @..%=    =......@.#%#*##.@...===#    @+..%    
+       @.:@   @.......@.@##@.@...===.@   @..@      
+         @.:@@ @........=@@=....===.@ @%..@        
+           @@.=+@........@*....@#==@+-.@@          
+               @@=@..........===.%=@@              
+                @..@@.....====-@@..@               
+                      @.-++==@                     
+                       @@@@@@                      
+                       @...=@                      
+                      @....-=@                     
+                    @........=-@                   
+                  @%%%%%%%%@@@@@@@                 
+                  @##..........#%@                 
+                  @#*#........@#%@                 
+                @#######****####@@@=               
+             @@ @@@@@@@@@@@@@@@@@@@%+@@            
+            # .:  --==++**************@            
+              :::*::::::::::---:-****@             
+              .:.%:::::::::::::::@***@             
+           @ ::  ::::::::-=++**********#@          
+         # ..  .......::::::::::::::*****#         
+         # ::  ::::::::::::::::::::-**@**#         
+         =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         
+                                                   
+                                                   
+
+
+
+                        )";
                 cout << "Congratulations! You reached the final room and won the game!" << endl;
                 exit(0); // ends the game
             }
@@ -165,7 +314,7 @@ public: // #15 Multiple Inheritance - slide 5
                 if (go(target_direction)) { // and move into new room
                     look();
                 
-            }
+                }
             }
             else {
                 system("cls");
@@ -178,19 +327,42 @@ public: // #15 Multiple Inheritance - slide 5
         }
     }
 
-
-
 };
-
-
 
 int main() {
     GameCommands game; // #14 - Classes - Creating an object, slide 16
     game.room_stuff(); // starting the rooms
-    game.look(); // one look to start the game
+
+    cout << R"(
+
+
+ /$$$$$$$  /$$   /$$ /$$   /$$  /$$$$$$  /$$$$$$$$  /$$$$$$  /$$   /$$
+| $$__  $$| $$  | $$| $$$ | $$ /$$__  $$| $$_____/ /$$__  $$| $$$ | $$
+| $$  \ $$| $$  | $$| $$$$| $$| $$  \__/| $$      | $$  \ $$| $$$$| $$
+| $$  | $$| $$  | $$| $$ $$ $$| $$ /$$$$| $$$$$   | $$  | $$| $$ $$ $$
+| $$  | $$| $$  | $$| $$  $$$$| $$|_  $$| $$__/   | $$  | $$| $$  $$$$
+| $$  | $$| $$  | $$| $$\  $$$| $$  \ $$| $$      | $$  | $$| $$\  $$$
+| $$$$$$$/|  $$$$$$/| $$ \  $$|  $$$$$$/| $$$$$$$$|  $$$$$$/| $$ \  $$
+|_______/  \______/ |__/  \__/ \______/ |________/ \______/ |__/  \__/
+                                                                      
+                                                                      
+                                                                      
+  /$$$$$$  /$$   /$$ /$$$$$$$$  /$$$$$$  /$$$$$$$$       /$$    /$$   
+ /$$__  $$| $$  | $$| $$_____/ /$$__  $$|__  $$__/      | $$   | $$   
+| $$  \ $$| $$  | $$| $$      | $$  \__/   | $$         | $$   | $$   
+| $$  | $$| $$  | $$| $$$$$   |  $$$$$$    | $$         |  $$ / $$/   
+| $$  | $$| $$  | $$| $$__/    \____  $$   | $$          \  $$ $$/    
+| $$/$$ $$| $$  | $$| $$       /$$  \ $$   | $$           \  $$$/     
+|  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/   | $$            \  $/      
+ \____ $$$ \______/ |________/ \______/    |__/             \_/       
+      \__/                                                            
+
+
+
+            )" << endl;
 
     for (;;) {
-
+            
         // reads user input and breaks line up into constituent words
         game.words.clear();
         string input;
@@ -202,7 +374,6 @@ int main() {
             cout << "Input error: " << e.what() << endl;
             continue; // go back to the loop
         }
-
 
         stringstream ss(input);
         string word;
@@ -267,15 +438,17 @@ int main() {
             cout << "Use what?";
         }
 
+        else if (game.words[0] == "help" && game.words.size() == 1) {
+            system("cls");
+            cout << "type LOOK to look at your surroundings. \ntype INVENTORY to view your items. \ntype GO and a direction to go to another room. \ntype GET to get an item. \ntype USE to use an item";
+        }
+
         else {
             system("cls");
-            cout << "I don't understand. Type HELP if it was implemented (not yet) or try again." << endl;
+            cout << "I don't understand. Type HELP or try again." << endl;
         }
 
     }
-
-
-    
 
     return 0;
 }
