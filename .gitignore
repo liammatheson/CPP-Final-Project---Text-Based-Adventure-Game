@@ -1,0 +1,5 @@
+*.vsidx
+.vs/
+*.vcxproj
+*.filters
+*.user
