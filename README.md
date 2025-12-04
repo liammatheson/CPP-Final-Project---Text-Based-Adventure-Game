@@ -4,12 +4,12 @@ A short text-based adventure game inspired by the classic games on [homestarrunn
 
 Type commands in the console to interact:
 
-GO <direction> to move.
-LOOK to see your surroundings. 
-LOOK <feature> to examine something specific. 
-GET <item> to pick up an item. 
-USE <item> <direction> to interact with objects or unlock doors. 
-INVENTORY to see the items you’re carrying.
+- GO <direction> to move.
+- LOOK to see your surroundings. 
+- LOOK <feature> to examine something specific. 
+- GET <item> to pick up an item. 
+- USE <item> <direction> to interact with objects or unlock doors. 
+- INVENTORY to see the items you’re carrying.
 
 ---
 
